@@ -82,8 +82,7 @@ class Bat extends Mammal {
     private boolean canFly;
 
     public Bat(String species) {
-        super();
-        this.species = species;
+        super.species = species; // accessing the instance variable of `Grandparent` class using `super`
     }
 
     public Bat(String species, String habitat, String furColor, boolean canFly) {
