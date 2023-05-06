@@ -11,6 +11,17 @@
  * Interfaces can also include private methods for default methods to use.
  */
 
+class CellPhone {
+
+    void placeCall(int phoneNumber) {
+        System.out.println("Calling " + phoneNumber + "...");
+    }
+
+    void pickCall() {
+        System.out.println("Connecting your call...");
+    }
+}
+
 interface Camera {
 
     void takeSnap();
@@ -35,17 +46,6 @@ interface Wifi {
     String[] getNetworks();
 
     void connectToNetwork(String network);
-}
-
-class CellPhone {
-
-    void placeCall(int phoneNumber) {
-        System.out.println("Calling " + phoneNumber + "...");
-    }
-
-    void pickCall() {
-        System.out.println("Connecting your call...");
-    }
 }
 
 // Sub-class inheriting a class and implementing multiple interfaces
@@ -83,6 +83,26 @@ public class DefaultMethods {
         for (String net : networks) {
             System.out.println(net);
         }
+
+        // Polymorphism in Interfaces
+        /*
+         * Polymorphism is a fancy word for the idea that different objects can be used
+         * in the same way, even if they are of different type.
+         */
+        System.out.println();
+        Camera cam = new SmartPhone(); // To be used as a camera only
+        cam.takeSnap();
+        cam.recordVideo();
+        cam.recordIn4K();
+
+        // Told ya, should be used as camera only
+        // cam.placeCall(); // Not allowed
+        // cam.pickCall(); // Not allowed
+        // String camNetworks = cam.getNetworks(); // Not allowed
+
+        // Likewise the following object shall only be used as Wifi
+        Wifi wifi = new SmartPhone();
+        System.out.println(wifi.getNetworks()); // Will return a reference
 
     }
 }
