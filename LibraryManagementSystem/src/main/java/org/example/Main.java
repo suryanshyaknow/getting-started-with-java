@@ -1,6 +1,8 @@
 package org.example;
 
 public class Main {
+
+    @SuppressWarnings("deprecation")
     public static void main(String[] args) {
 
         Library olib = new Library();

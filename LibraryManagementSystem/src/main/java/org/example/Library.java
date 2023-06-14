@@ -122,6 +122,7 @@ public class Library {
         System.out.println("Thankyou for visiting us! We look forward to seeing you again. :)");
     }
 
+    @Deprecated
     public void getUserDb() {
         System.out.println("Getting the User Central Database...");
         System.out.println(userDb);
