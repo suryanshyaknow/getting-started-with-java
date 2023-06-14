@@ -5,6 +5,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Demonstration of how javadoc is generated as per industry standards.
+ *
+ * @author Suryansh Grover
+ * @version 0.0.1
+ * @see <a href="https://docs.oracle.com/en/java/javase/17/docs/api/index.html" target="_blank">Java Docs</a>
+ * @since 2023
+ */
+
 public class Library {
 
     private ArrayList<Book> books;
@@ -37,6 +46,18 @@ public class Library {
         }
     }
 
+    /**
+     * This method adds the specified (through the params) book into the library's repository
+     * and prints a message to confirm the same.
+     *
+     * <p><b>NOTE:</b> We can also keep track of the number of copies of a specific book in the library.
+     * Whenever a book is borrowed or returned, the count will be updated accordingly. If the
+     * count reaches zero, we can remove the entry for that book.</p>
+     * <p>However, this implementation would be currently redundant.</p>
+     *
+     * @param bookName Name of the book to be added to the library's repo.
+     * @param author   Name of the author of the book to be added to the library's repo.
+     */
     public void addBook(String bookName, String author) {
 
         // Creating an instance of the desired Book
@@ -54,7 +75,7 @@ public class Library {
          * Whenever a book is borrowed or returned, the count will be updated accordingly. If the
          * count reaches zero, we can remove the entry for that book.
          *
-         * However, this implementation is currently irrelevant.
+         * However, this implementation would be currently redundant.
          */
     }
 
@@ -79,13 +100,13 @@ public class Library {
     public void returnIssuedBook(String bookName, String bookAuthor, String borrower) {
         Book book = new Book(bookName, bookAuthor);
         if (userDb.containsKey(bookName)) {
-            if (userDb.get(bookName).getIssuedTo() == borrower) {
+            if (userDb.get(bookName).getIssuedTo().equals(borrower)) {
             } else {
-                System.out.println("We have not fuckin lent you any such book in the past!");
+                System.out.println("We have not fuckin' lent you any such book in the past!");
                 return;
             }
         } else {
-            System.out.println("We had not even have any such book, you sure you've lent it from here only?");
+            System.out.println("We have not even had any such book, you sure you've lent it from here only?");
             return;
         }
 
