@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 
 @FunctionalInterface
 interface GreetingService {
@@ -32,5 +35,22 @@ public class ii__LambdaExpressionExample {
         Thread thread = new Thread(runnable);
         thread.start();
 
+        /**
+         * Demonstrating that certain Java data structures, like ArrayList, can store
+         * heterogeneous types of elements.
+         * 
+         * I have created an ArrayList without specifying a generic type, which means it
+         * will default to storing objects of type "Object". When I add elements to this
+         * ArrayList, the elements are treated as Object types, and no type checking or
+         * enforcement occurs.
+         */
+        ArrayList al = new ArrayList();
+        al.add("Suryansh");
+        al.add(1999);
+        al.add(new HashSet<>(Arrays.asList("Spidey", "Shady", "Drizzy")));
+        System.out.println(al);
+        System.out.println(al.get(0).getClass());
+        System.out.println(al.get(1).getClass());
+        System.out.println(al.get(2).getClass());
     }
 }
